@@ -1,0 +1,23 @@
+BEGIN;
+CREATE TABLE IF NOT EXISTS exam_classes (
+ id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+ instructor_id INTEGER NOT NULL REFERENCES users(id),
+ name VARCHAR(100) NOT NULL CHECK(length(trim(name))>0),
+ description VARCHAR(1000) NOT NULL DEFAULT '',
+ created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ UNIQUE(instructor_id,name)
+);
+CREATE TABLE IF NOT EXISTS class_students (
+ class_id INTEGER NOT NULL REFERENCES exam_classes(id) ON DELETE CASCADE,
+ student_id INTEGER NOT NULL REFERENCES users(id),
+ enrolled_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY(class_id,student_id)
+);
+CREATE INDEX IF NOT EXISTS enrollment_student ON class_students(student_id);
+ALTER TABLE exams ADD COLUMN IF NOT EXISTS class_only BOOLEAN NOT NULL DEFAULT FALSE;
+CREATE TABLE IF NOT EXISTS exam_class_assignments (
+ exam_id INTEGER NOT NULL REFERENCES exams(id) ON DELETE CASCADE,
+ class_id INTEGER NOT NULL REFERENCES exam_classes(id),
+ PRIMARY KEY(exam_id,class_id)
+);
+COMMIT;

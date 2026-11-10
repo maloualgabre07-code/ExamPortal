@@ -1,0 +1,17 @@
+ExamPortal – BCC Caring Your Future tagline color update
+
+Change:
+- Updated the “BCC CARING YOUR FUTURE” tagline to use the same lime accent color as “Confident minds.”
+- Kept the larger BCC logo, wording, layout, and all existing functionality unchanged.
+
+Install:
+1. Stop the ExamPortal server.
+2. Back up your current public/style.css.
+3. Extract this ZIP into your ExamPortal project folder, preserving the public folder path.
+4. Replace public/style.css when prompted.
+5. Run npm start and hard-refresh the browser with Ctrl+F5.
+
+Only public/style.css is included. No database, authentication, or exam logic is changed.
+
+
+COLOR UPDATE: The “Confident minds” heading text is styled lime green (#B5ED22), matching “BCC CARING YOUR FUTURE”. This assumes that phrase is wrapped in a span or an accent/highlight class in the login page markup.

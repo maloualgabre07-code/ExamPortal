@@ -1,0 +1,5 @@
+ExamPortal Apple Green — Balanced sidebar spacing
+
+Refined branding-to-menu spacing, aligned nav rows and icons, clean Sign Out separation, and less prominent lower illustration. The Student Dashboard and application logic have not been changed.
+
+Run with the existing private .env settings. npm install (if dependencies are absent), then npm start. Refresh Chrome using Ctrl+Shift+R.

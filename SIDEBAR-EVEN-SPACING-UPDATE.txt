@@ -1,0 +1,14 @@
+ExamPortal — Even Sidebar Spacing Update
+
+Updated public/REFERENCE-MATCH.css only.
+
+Changes:
+- Overview–Profile have more balanced vertical spacing.
+- Sign Out sits near the lower end of the sidebar rather than near Profile.
+- A protected gap keeps Sign Out separate from the school-landscape illustration.
+- Short laptop windows may scroll the sidebar to prevent overlap.
+- Mobile (<751px) continues to use its existing navigation layout.
+
+Install: Extract this project into a NEW folder and copy your existing private .env
+file there (the ZIP deliberately does not contain one). Run npm install if needed,
+then npm start. In Chrome, press Ctrl+Shift+R to refresh cached CSS.

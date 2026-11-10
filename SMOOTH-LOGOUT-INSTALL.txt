@@ -1,0 +1,31 @@
+EXAMPORTAL SMOOTH LOGOUT UPDATE
+
+Sign Out now opens a full-screen fade-in loading overlay with a rotating spinner and Signing you out… text.
+It stays visible for at least 450 milliseconds while the server signs out. Repeated clicks are blocked.
+Reduced-motion preferences are respected.
+A successful logout clears the workspace and opens a clean login form with the email field focused.
+No browser reload is needed. A fresh session token is obtained automatically on the next sign-in.
+Active examination answers are saved before logout. The timer continues on the server.
+If saving or signing out fails, the user stays signed in and sees a retry message.
+Normal logout has no confirmation dialog; an active examination still asks before leaving.
+
+INSTALL
+Stop npm start with Ctrl+C, then back up your project.
+Copy ALL ZIP contents directly into C:\Users\Malou Algabre\OneDrive\ExamPortal\ExamPortal.
+Replace matching files and merge folders. Preserve your existing .env, db.js, package.json and node_modules.
+This cumulative update includes the previous required class-code update.
+If that update's database migration has not been run, run node scripts/upgrade-required-class-code.js first.
+Then run npm start, open http://localhost:3000 and press Ctrl+F5.
+If the class-code database migration was already applied, no further migration is needed for logout.
+Read REQUIRED-CLASS-CODE-INSTALL.txt for the class access rules and existing enrollment confirmation.
+
+CHECK
+Sign in as an instructor. Click Sign Out once; the clean login form should appear.
+Sign in as a student; the previous instructor workspace should not appear.
+While taking an exam, answer a question and sign out. Confirm leaving, then sign back in and resume.
+Your saved answer should remain. The examination timer continues and may expire while signed out.
+
+VALIDATION
+Eight backend assessment/class-access tests and three logout UI logic tests passed.
+Logout tests cover duplicate clicks, state cleanup, save-before-signout, cancellation and failure recovery.
+UI logic tests use a simulated DOM; a full browser run on your laptop was not performed.

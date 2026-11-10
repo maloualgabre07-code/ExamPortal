@@ -1,0 +1,14 @@
+EXAMPORTAL INTER FONT UPDATE
+
+Uses the locally hosted Inter variable font throughout the interface, forms and buttons.
+Works offline without external font requests. The SIL Open Font License is included.
+
+Stop npm start using Ctrl+C. Extract this ZIP directly into:
+C:\Users\Malou Algabre\OneDrive\ExamPortal\ExamPortal
+Merge folders and replace public/style.css. The ZIP adds public/fonts/Inter-Variable.ttf.
+Run npm start. Open http://localhost:3000 and press Ctrl+F5.
+No database migration or npm installation is required.
+This update preserves the logout loading styles from the latest update.
+
+Font source: https://github.com/google/fonts/tree/main/ofl/inter
+Validated the font and its 100–900 weight range. Layout was not visually tested on your laptop.

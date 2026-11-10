@@ -1,0 +1,2 @@
+const fs=require('fs');const path=require('path');const pool=require('../db');
+(async()=>{try{await pool.query(fs.readFileSync(path.join(__dirname,'../migrations/005-bank-randomization.sql'),'utf8'));console.log('Question bank and randomized exams upgraded. Existing exams, attempts, and results preserved.');}catch(e){console.error('Upgrade failed:',e.message);process.exitCode=1;}finally{await pool.end();}})();

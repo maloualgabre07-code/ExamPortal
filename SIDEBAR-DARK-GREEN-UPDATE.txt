@@ -1,0 +1,16 @@
+ExamPortal - Dark Green Sidebar Update
+
+This update starts from ExamPortal_Apple_Green_Even_Sidebar.zip.
+
+Changes:
+- Dark pine-green gradient for the sidebar only (#143D2B to #0B281E).
+- White navigation text, lighter workspace label, and apple-green selected navigation item.
+- Dark translucent Sign Out button and understated landscape illustration.
+- Navigation placement, application logic, school logo, exam data, and main dashboard remain unchanged.
+
+Run:
+1. Back up your working project.
+2. Extract this ZIP to a separate folder.
+3. Copy your existing .env file into the project (never share it).
+4. Run npm install if needed, followed by npm start.
+5. Open http://localhost:3000 and hard-refresh using Ctrl+Shift+R.

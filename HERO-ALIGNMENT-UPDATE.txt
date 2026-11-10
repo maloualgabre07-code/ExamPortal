@@ -1,0 +1,2 @@
+ExamPortal hero banner correction
+The graduation cap and hero text are now in adjacent grid columns. The clipboard stays at the right. Only public/REFERENCE-MATCH.css changed (plus this note). The existing sidebar, exam logic, and other project files are preserved.

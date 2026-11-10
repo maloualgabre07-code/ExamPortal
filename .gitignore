@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Database credentials and environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local database backups
+*.dump
+*.backup
+*.sql.gz
+
+# Editor and operating system files
+.vscode/
+.DS_Store
+Thumbs.db
+# Exclude older duplicate project
+/ExamPortal/

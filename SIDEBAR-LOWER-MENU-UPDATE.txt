@@ -1,0 +1,1 @@
+Sidebar navigation moved into lower half on desktop viewports. Sign Out placed below Profile, above the decorative landscape. Narrow and short-screen fallbacks retained. No backend, database or examination behavior changed.

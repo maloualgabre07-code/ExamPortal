@@ -1,0 +1,10 @@
+ExamPortal - Apple Green Sidebar Position Update
+
+The sidebar now groups Overview, Available Exams, My Results, My Classes,
+and Profile with even vertical spacing. Sign Out is pushed down near the
+bottom, above the decorative landscape. The top-bar student profile is
+unchanged; no routes, exam logic, database schema, or backend files changed.
+
+Use your working .env file, start the project with npm start, and hard-refresh
+Chrome (Ctrl+Shift+R). On screens 750px wide or narrower the original mobile
+navigation remains in effect.

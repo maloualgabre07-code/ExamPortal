@@ -1,0 +1,5 @@
+const {PGlite}=require('@electric-sql/pglite');
+const {EventEmitter}=require('events');
+// PostgreSQL engine in-process for repeatable tests. Production uses pg.Pool.
+async function testPool(){const db=new PGlite();await db.waitReady;let tail=Promise.resolve();const acquire=async()=>{let done;const prior=tail;tail=new Promise(r=>done=r);await prior;return done;};const run=async(sql,values)=>{if(typeof sql==='object'){values=sql.values;sql=sql.text;}const r=(!values||values.length===0)?(await db.exec(sql)).at(-1):await db.query(sql,values);return {...r,rowCount:r.affectedRows??r.rows.length};};const pool=new EventEmitter();pool.query=(sql,values,callback)=>{if(typeof values==='function'){callback=values;values=undefined;}const p=(async()=>{const release=await acquire();try{return await run(sql,values);}finally{release();}})();if(callback){p.then(r=>callback(null,r),e=>callback(e));return;}return p;};pool.connect=async()=>{const release=await acquire();return{query:run,release};};pool.exec=async sql=>{const release=await acquire();try{return await db.exec(sql);}finally{release();}};pool.end=()=>db.close();return pool;}
+module.exports={testPool};

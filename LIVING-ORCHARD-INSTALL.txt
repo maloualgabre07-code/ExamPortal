@@ -1,0 +1,18 @@
+BCC EXAMPORTAL — LIVING ORCHARD (FALLING LEAVES)
+
+Your existing dashboard layout, school photo banner, dark forest green and apple green palette are preserved.
+
+CHANGES: only public/style.css and public/bcc-falling-leaves.svg.
+- Subtle animated falling leaf silhouettes behind overview cards.
+- Similar, quieter decoration on the sign-in illustration area.
+- No animated leaves when taking an examination, viewing other pages or printing.
+- Respects the operating system Reduce Motion setting.
+- No changes to JS, server, SEB, database, or tests.
+
+HOW TO INSTALL:
+1. Back up your current public/style.css.
+2. From this ZIP copy public/style.css and public/bcc-falling-leaves.svg into your running ExamPortal/public folder.
+3. Keep the existing bcc-campus-background.jpg and bcc-orchard-waves.svg in that folder.
+4. Visit http://localhost:3000 and press Ctrl + F5.
+
+If the leaf drift is too active, in the last CSS block change opacity:.52 to .25 or duration 36s to 55s.

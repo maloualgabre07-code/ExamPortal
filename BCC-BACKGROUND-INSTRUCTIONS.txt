@@ -1,0 +1,15 @@
+BCC Campus Background Update
+============================
+This project now shows the BCC-inspired campus image behind the login/registration screen and in dashboard hero banners.
+
+To use:
+1. Back up your existing ExamPortal folder.
+2. Extract this ZIP into a NEW folder (do not overwrite your working installation before backing it up).
+3. Carry over your existing local .env and any missing deployment-specific files from your working folder. Never share your .env.
+4. Use your normal ExamPortal startup procedure (npm install if needed, then npm start) from the extracted project root.
+5. Open http://localhost:3000 and refresh with Ctrl+F5.
+
+For an authentic school photo, replace public/bcc-campus-background.jpg with your own authorized photograph using exactly the same filename.
+This current image was AI-generated as a visual recreation from the supplied school website screenshot; it is NOT a verified campus photograph.
+
+Changed presentation assets: public/style.css and public/bcc-campus-background.jpg. No application routes, JavaScript, database, or SEB files were altered.

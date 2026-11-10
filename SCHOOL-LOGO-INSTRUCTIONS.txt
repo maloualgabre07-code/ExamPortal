@@ -1,0 +1,8 @@
+OFFICIAL BCC LOGO INSTALLED
+
+The logo provided by the user has been added as public/bcc-logo.png.
+It appears in the login/registration panel and the authenticated sidebar.
+A small favicon is included for browser tabs.
+
+Start the existing project following its original database and environment setup.
+No backend or database logic was modified for this branding update.

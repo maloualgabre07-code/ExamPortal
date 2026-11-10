@@ -1,0 +1,14 @@
+ExamPortal - Chrome-compatible examination-only deterrents
+
+Added to public/app.js and public/style.css:
+- Visible exam-only integrity reminder and per-attempt identity watermark
+- Restrict right-click, copy and cut inside the active exam content
+- Intercept common Ctrl/Cmd+P, S and U shortcuts while exam is active
+- Show a local count/reminder for tab/window focus loss
+- Automatically disable deterrents when the exam is submitted, left, or signed out
+
+LIMITATIONS:
+Chrome cannot prevent OS screenshot keys, Snipping Tool, screen recording, camera photos, or all printing/shortcut workarounds. The focus-loss count is NOT persisted to PostgreSQL and is NOT an instructor audit trail. There are no database changes.
+
+INSTALL:
+Back up your existing ExamPortal folder. Copy the updated public/app.js and public/style.css into your project; preserve your own .env. Restart npm start and refresh the page (Ctrl+F5). Test student start/resume, navigating away, submit and instructor question editor.

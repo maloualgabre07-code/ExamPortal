@@ -1,0 +1,68 @@
+EXAMPORTAL: YOUR INSTRUCTOR'S FOUR REQUIRED FEATURES
+
+1. QUESTION BANK: reusable questions with CRUD, search, subject, difficulty and type filters, pagination, preview, copy from exams and import into draft exams.
+2. RANDOMIZED EXAMS: independent random question order, shuffled multiple-choice choices with correctly remapped answer keys, and optional random subset from an exam question pool.
+3. TIMERS: visible countdown and backend-enforced deadline; refresh/resume does not reset time; expiry grades saved answers.
+4. AUTOMATIC SCORING: all four existing types; weighted points, passing percentage and saved results/reports.
+
+INSTALLATION
+This update is for your working ExamPortal with mixed question types and classes already installed.
+1. Stop the server with Ctrl+C. Back up the project and database.
+2. Extract this ZIP directly into:
+   C:\Users\Malou Algabre\OneDrive\ExamPortal\ExamPortal
+   Or extract elsewhere and copy ALL CONTENTS into that folder.
+3. Choose Replace for matching files; merge public, scripts, migrations and test folders. Keep your .env and node_modules. Verify question-bank.js and randomize.js are beside server.js, not inside an extra nested folder.
+4. Run in the VS Code terminal in that inner project folder:
+   node scripts/upgrade-bank.js
+   Expected: Question bank and randomized exams upgraded. Existing exams, attempts, and results preserved.
+5. Run:
+   npm start
+6. Open http://localhost:3000 and press Ctrl+F5.
+No new npm packages are required. The migration is additive. Existing exam settings default to their previous fixed order; old attempt snapshots and results are preserved.
+
+QUESTION BANK
+Sign in as instructor > Question Bank.
+Click Create bank question. Enter question, subject/topic, difficulty, type, correct answer/accepted spellings and points. Save.
+All four types work: multiple choice, true/false, identification and enumeration.
+Use Preview, Edit and Delete. Editing/deleting a bank question does not change exam copies or historical attempts.
+Search by question text or subject. The exact subject filter matches the full subject label. Difficulty and type filters can be combined. Previous/Next pages display 20 questions per page.
+Instructors see only their own bank; administrators can manage all bank questions. Students have no bank access or bank answer keys.
+
+REUSE YOUR EXISTING QUESTIONS, INCLUDING REVIEWED AI QUESTIONS
+Examinations > Manage questions (or View questions on a published exam).
+Each question has Save to bank. Choose subject/difficulty and save a reusable copy.
+This is also how to save reviewed AI-generated exam questions to the reusable bank.
+
+ADD BANK QUESTIONS TO A DRAFT
+Examinations > draft > Manage questions > Add from bank.
+Select questions with checkboxes. Search/filter or move through pages; selections are kept across pages. Clear selection resets them.
+Click Add selected to draft. Up to 100 questions can be in an exam pool.
+Copies are independent: you can edit a draft copy without editing the bank. A deleted bank item stays in existing exam copies. Importing the same bank question again intentionally creates another copy, so review your pool before publishing.
+
+RANDOMIZATION SETTINGS
+Create examination or Edit a draft.
+- Shuffle question order: enabled by default on new exams created through the interface.
+- Shuffle multiple-choice answers: enabled by default on new interface-created exams. True/false choices remain in their normal order; typed answers have no choices to shuffle.
+- Random questions per attempt: 0 uses all questions; any value 1–100 samples that many distinct questions from the exam pool. There must be at least that many questions before publishing.
+Example: add 20 questions to the draft pool, set random question count to 10. Each attempt gets 10 randomly selected questions, with no repeated question ID in that attempt.
+Selection and choice order are saved once in the PostgreSQL attempt snapshot. Autosave, refresh and Resume preserve that exact selection/order and the original deadline. The grader uses the answer keys remapped to the saved shuffled choices.
+Independent randomization can occasionally produce the same order or subset for different students; it is not a guarantee of unique exams.
+With varied point values, sampled attempts may have different total points. The actual total is calculated from each saved attempt, and pass/fail uses its percentage. Use equal point values across your pool for equal totals.
+Publishing freezes randomization settings and exam questions. Duplicate a published exam to change them. Duplication keeps the randomization settings and class audience.
+
+TIMER AND SCORING DEMONSTRATION
+1. Create at least 10 questions in the bank (or save your existing exam questions to it).
+2. Create a draft exam. Use Add from bank to import them.
+3. Enable question/choice shuffle. Set random question count to 5 and duration to 1 minute for a quick timer demonstration.
+4. Assign classes if wanted, then publish.
+5. Sign in as an enrolled student (or any registered student if the audience is All registered students). Start the exam.
+6. Answer some questions, leave/resume or refresh, and verify the chosen questions/choices stay the same and time continues.
+7. Submit one attempt to demonstrate immediate scoring. Use a second allowed attempt or another student to demonstrate automatic expiry and grading of previously saved answers.
+8. Sign in as instructor. Check Results & Reports and Student participation, and export results.
+9. Edit a bank question and show that an already published exam and saved student attempt are unchanged.
+No Gemini key or network call is needed to demonstrate the four core features using manually authored bank questions.
+
+VALIDATION
+Seven automated backend tests passed for existing assessment/class/type flows plus bank CRUD, ownership/CSRF restrictions, search/filter/pagination, atomic import, independent copies, duplication, answer-key remapping, random subset uniqueness/size, unchanged source questions, stable saved attempts/deadlines, shuffled answer scoring, expiry scoring of saved answers, and repeated migration preservation. Bank import was also tested for identification and enumeration keys.
+Browser checks passed for bank create/edit/delete/filter, exam-to-bank copy, bank-to-exam import, default randomization controls, random subset display, resume stability, correct shuffled-answer score, and mobile bank layout.
+Optional: npm test uses an isolated PostgreSQL-compatible test database, not your real exam database.

@@ -1,0 +1,1 @@
+Fixed the graduation-cap area in the welcome hero. The cap now appears in a compact green badge aligned immediately to the left of the message. Only public/REFERENCE-MATCH.css was changed relative to ExamPortal_Enhanced_Slightly_Larger_Logo.zip. Use your existing .env file.

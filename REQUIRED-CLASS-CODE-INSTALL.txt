@@ -1,0 +1,51 @@
+EXAMPORTAL — REQUIRED SUBJECT CLASS CODES
+
+Purpose: Codes enroll students in a subject class. They are not for instructor or administrator signup.
+Instructors register directly. A student enters the class code ONCE, then accesses published exams assigned to that class.
+Every examination requires at least one assigned class before publication. There is no all-students/public exam option.
+Students without code-confirmed membership cannot list, start, resume, save answers or submit active exams for that class.
+Direct URLs and API calls enforce the same restriction. Joining one class does not grant access to another class.
+
+INSTALL INTO YOUR RUNNING PROJECT
+1. Stop npm start using Ctrl+C. Back up your project folder and database.
+2. Extract this ZIP into a temporary folder, then copy ALL contents directly into:
+   C:\Users\Malou Algabre\OneDrive\ExamPortal\ExamPortal
+   Replace matching files and merge folders. Preserve your existing .env, db.js, package.json and node_modules.
+   Do not put this update only in the outer ExamPortal folder.
+3. Run node scripts/upgrade-required-class-code.js
+4. Run npm start
+5. Open http://localhost:3000 and press Ctrl+F5.
+The script includes the earlier class-code migration. If the question bank migration has not been run yet, also run node scripts/upgrade-bank.js.
+No new npm dependencies are needed. INSTRUCTOR_INVITE_CODE is unused and can be removed from .env.
+
+INSTRUCTOR EXAMPLE
+Create class BSIT 4A — Web Development under Classes & Sections.
+Copy the code shown on its card. For existing classes, click Generate code.
+Give this code privately to the students in this subject/section.
+Create an exam, add questions, click Assign classes, select the subject class, save and publish.
+If you try to publish without a class, the server rejects it.
+Use separate classes/codes for different subjects or sections to keep enrollment organized.
+
+STUDENT EXAMPLE
+Register as Student, sign in, open My Classes, click Join class and enter the instructor's code.
+The class appears in My Classes and its published exams appear in Available Exams.
+Other instructors' class exams remain inaccessible unless their assigned class is also joined with its code.
+Schedules, timers and attempt limits still apply.
+
+EXISTING DATA
+Accounts, examinations, attempts and results are preserved.
+Existing enrollment rows require entering the subject's code once after upgrading, even if enrolled before this update.
+Roster rows needing confirmation are labeled Needs class code. Entering the code confirms existing enrollment without duplicates.
+Old examinations without class assignments become unavailable to students. Duplicate published exams, assign the copy to a class and publish.
+Completed results remain readable to their authorized owners. Active attempts are blocked after enrollment removal until rejoining; timers continue.
+Manual enrollment by instructors is disabled so students cannot bypass the required class code.
+Resetting a code invalidates the old code for future joining; current confirmed members remain enrolled.
+If removing an unwanted student, also reset the class code to prevent rejoining with the old shared code.
+The code is reusable and has no expiry; it is not needed on every login or every exam.
+
+VALIDATION
+Eight automated tests passed using isolated PostgreSQL-compatible test databases, including class-code validation,
+legacy unconfirmed enrollment denial, confirmation, duplicate joins, rotation, class assignment requirements,
+public-audience rejection, direct exam denial, removal, results preservation, scoring, timing and randomization.
+Your private database and live AI service were not used in these tests.
+This is an update for the existing project, not a standalone application.

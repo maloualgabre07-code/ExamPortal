@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+ <g id="leaf"><path d="M0 0 C-8 -13 -7 -26 1 -37 C11 -32 21 -23 20 -11 C19 1 10 6 0 0Z" fill="currentColor"/><path d="M0 0 Q5 -18 1 -35" fill="none" stroke="#ecf6d8" stroke-width="1.1" opacity=".55"/></g>
+ <g id="leaf2"><path d="M0 0 C-13 -9 -12 -23 -2 -34 C9 -30 16 -19 12 -9 C9 -2 4 2 0 0Z" fill="currentColor"/><path d="M0 0 Q3 -17 -2 -32" fill="none" stroke="#ecf6d8" stroke-width="1" opacity=".5"/></g>
+</defs>
+<g color="#76a964">
+ <use href="#leaf" transform="translate(92 112) rotate(-26) scale(.72)" opacity=".34"/>
+ <use href="#leaf2" transform="translate(428 275) rotate(32) scale(.55)" opacity=".35"/>
+ <use href="#leaf" transform="translate(814 78) rotate(18) scale(.48)" opacity=".35"/>
+ <use href="#leaf2" transform="translate(1171 219) rotate(-48) scale(.75)" opacity=".31"/>
+ <use href="#leaf" transform="translate(1343 503) rotate(63) scale(.46)" opacity=".38"/>
+ <use href="#leaf2" transform="translate(625 622) rotate(-16) scale(.63)" opacity=".3"/>
+ <use href="#leaf" transform="translate(245 730) rotate(54) scale(.43)" opacity=".32"/>
+ <use href="#leaf2" transform="translate(1075 822) rotate(28) scale(.52)" opacity=".34"/>
+ <use href="#leaf" transform="translate(996 417) rotate(-64) scale(.42)" opacity=".26"/>
+ <use href="#leaf2" transform="translate(142 470) rotate(18) scale(.38)" opacity=".28"/>
+ </g>
+<g color="#447b42">
+ <use href="#leaf2" transform="translate(290 200) rotate(25) scale(.41)" opacity=".3"/>
+ <use href="#leaf" transform="translate(1320 100) rotate(-22) scale(.45)" opacity=".28"/>
+ <use href="#leaf2" transform="translate(760 434) rotate(45) scale(.4)" opacity=".34"/>
+ <use href="#leaf" transform="translate(1200 691) rotate(36) scale(.35)" opacity=".26"/>
+ </g>
+</svg>

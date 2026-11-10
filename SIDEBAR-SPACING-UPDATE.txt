@@ -1,0 +1,10 @@
+ExamPortal — Apple Green Sidebar Spacing Update
+
+This package starts from the No Duplicate Profile version and changes only sidebar CSS.
+- Spaced the navigation items more consistently.
+- Separated the Sign Out row from regular navigation with a subtle divider.
+- Reduced the lower decorative landscape so it does not crowd the menu.
+- Preserved the BCC branding, student top bar, and exam behavior.
+
+To run: copy your existing .env file, npm install (if needed), npm start.
+Force reload Chrome with Ctrl + Shift + R.

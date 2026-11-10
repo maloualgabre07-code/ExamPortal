@@ -1,0 +1,15 @@
+BCC EXAMPORTAL — FRESH ORCHARD WAVES
+
+Designed to preserve your current light dashboard and school photo banner.
+Adds layered, soft apple-green wave graphics in the content background,
+plus coordinated buttons, active navigation and gentle hover effects.
+
+RECOMMENDED: Do not replace your working project or .env.
+1. Back up your working public/style.css.
+2. From this ZIP, copy public/style.css AND public/bcc-orchard-waves.svg
+   into your working ExamPortal/public folder.
+3. Keep the existing public/bcc-campus-background.jpg image.
+4. Refresh the running site with Ctrl+F5.
+
+This is only a CSS/SVG change. Existing JavaScript, exam behavior,
+PostgreSQL, server, SEB and authentication files are unchanged.
